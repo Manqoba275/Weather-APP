@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Background for card surfaces with rounded corners -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Default state -->
+    <item>
+        <shape android:shape="rectangle">
+            <!-- The fill color of the card -->
+            <solid android:color="@color/card_surface" />
+
+            <!-- The curvature of the card corners -->
+            <corners android:radius="20dp" />
+        </shape>
+    </item>
+</selector>
