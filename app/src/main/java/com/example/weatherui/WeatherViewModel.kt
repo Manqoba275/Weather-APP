@@ -21,9 +21,11 @@ data class WeatherUiState(
     val unit: TemperatureUnit = TemperatureUnit.CELSIUS
 )
 
-class WeatherViewModel(application: Application) : AndroidViewModel(application) {
+class WeatherViewModel @JvmOverloads constructor(
+    application: Application,
+    private val repository: WeatherRepository = WeatherRepository()
+) : AndroidViewModel(application) {
     private val prefs = application.getSharedPreferences("weather", 0)
-    private val repository = WeatherRepository()
     private var selectedCity = City.JOHANNESBURG
     private var request: Job? = null
     private var generation = 0
