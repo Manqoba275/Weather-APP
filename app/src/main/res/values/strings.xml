@@ -14,10 +14,6 @@
     <string name="rain_chance">Rain %1$s</string>
     <string name="temperature_separator">/</string>
     <string name="attribution">Weather: Open-Meteo · Locations: GeoNames ↗</string>
-    <string name="location_placeholder">Johannesburg, ZA</string>
-    <string name="temp_placeholder">22°</string>
-    <string name="condition_placeholder">Partly Cloudy</string>
-    <string name="feels_like_placeholder">Feels like 24°</string>
     <string name="humidity_label">Humidity</string>
     <string name="wind_label">Wind</string>
     <string name="uv_label">Today’s max UV</string>

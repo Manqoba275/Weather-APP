@@ -45,7 +45,7 @@ class WeatherDeviceTest {
         assertTrue(state.cached)
         assertEquals(City.JOHANNESBURG, state.weather!!.city)
         assertEquals(22.0, state.weather!!.forecast.current.temperature!!, 0.01)
-        assertEquals(123_000, state.weather!!.fetchedAt)
+        assertEquals(123_000L, state.weather!!.fetchedAt)
         assertTrue(state.message!!.contains("last saved forecast"))
         onMain { model.select(City("Tokyo", "Japan", "", 35.68, 139.69)) }
         val failedSelection = settled(model)

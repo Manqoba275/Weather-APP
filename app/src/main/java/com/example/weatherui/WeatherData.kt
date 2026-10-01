@@ -92,7 +92,9 @@ object WeatherParser {
         val hourTimes = hourly.getJSONArray("time")
         val hours = (0 until hourTimes.length()).map { i ->
             HourForecast(hourTimes.getLong(i), hourly.number("temperature_2m", i), hourly.number("precipitation_probability", i), hourly.number("weather_code", i)?.toInt(), hourly.number("is_day", i) != 0.0)
-        }.filter { it.time >= time - time % 3600 }.take(24)
+        // Compare forecast intervals, not UTC hour boundaries: some locations
+        // have half-hour or quarter-hour time-zone offsets.
+        }.filter { it.time + 3600 > time }.take(24)
         val daily = root.getJSONObject("daily")
         val dayTimes = daily.getJSONArray("time")
         val days = (0 until dayTimes.length()).take(7).map { i ->

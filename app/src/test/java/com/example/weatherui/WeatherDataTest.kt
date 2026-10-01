@@ -49,6 +49,15 @@ class WeatherDataTest {
         assertEquals("—", TemperatureUnit.CELSIUS.temperature(result.current.temperature))
     }
 
+    @Test fun fractionalTimezoneKeepsTheCurrentLocalHour() {
+        val json = fixture().put("timezone", "Asia/Kolkata")
+        json.getJSONObject("current").put("time", 1_800_000_900L)
+        json.getJSONObject("hourly").put("time", JSONArray((0..48).map { 1_799_998_200L + it * 3600 }))
+        val result = WeatherParser.forecast(json.toString())
+        assertEquals(1_799_998_200L, result.hourly.first().time)
+        assertEquals(24, result.hourly.size)
+    }
+
     @Test(expected = IllegalArgumentException::class) fun emptyForecastIsRejected() {
         val json = fixture()
         json.getJSONObject("hourly").put("time", JSONArray())

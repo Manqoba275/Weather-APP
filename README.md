@@ -29,7 +29,7 @@ Command-line checks (set `JAVA_HOME` and `ANDROID_HOME` for your machine):
 
 On Windows, use `gradlew.bat` instead of `./gradlew`. The debug APK is written to `app/build/outputs/apk/debug/app-debug.apk`. It is a development build; a Play Store release still needs your own signing configuration and release review.
 
-GitHub Actions builds the APK, runs unit tests and Android lint, and uploads the APK and reports to each successful workflow run. See [Android checks](https://github.com/Manqoba275/Weather-APP/actions/workflows/android.yml).
+GitHub Actions builds the APK, runs unit tests, Android lint, and device tests on an Android 15 emulator, then uploads the APK and reports. See [Android checks](https://github.com/Manqoba275/Weather-APP/actions/workflows/android.yml).
 
 ## How it works
 

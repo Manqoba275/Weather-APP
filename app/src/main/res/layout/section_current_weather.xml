@@ -23,14 +23,14 @@
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:src="@drawable/cloud_24dp_1f1f1f_fill0_wght400_grad0_opsz24"
-            app:tint="@color/accent_amber" />
+            android:tint="@color/accent_amber" />
 
         <TextView
             android:id="@+id/tvTemp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/temp_placeholder"
+            tools:text="22°C"
             android:textColor="@color/white"
             android:textSize="64sp"
             android:textStyle="bold" />
@@ -39,7 +39,7 @@
             android:id="@+id/tvCondition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/condition_placeholder"
+            tools:text="Partly cloudy"
             android:textColor="@color/white_70"
             android:textSize="16sp" />
 
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@string/feels_like_placeholder"
+            tools:text="Feels like 24°C"
             android:textColor="@color/white_50"
             android:textSize="13sp" />
 

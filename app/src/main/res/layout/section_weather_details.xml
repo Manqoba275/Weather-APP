@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -19,14 +19,15 @@
             android:layout_width="22dp"
             android:layout_height="22dp"
             android:src="@drawable/water_drop_24dp_1f1f1f_fill0_wght400_grad0_opsz24"
-            app:tint="@color/white" />
+            android:importantForAccessibility="no"
+            android:tint="@color/white" />
 
         <TextView
             android:id="@+id/tvHumidityValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="65%"
+            tools:text="65%"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -56,14 +57,15 @@
             android:layout_width="22dp"
             android:layout_height="22dp"
             android:src="@drawable/air_24dp_1f1f1f_fill0_wght400_grad0_opsz24"
-            app:tint="@color/white" />
+            android:importantForAccessibility="no"
+            android:tint="@color/white" />
 
         <TextView
             android:id="@+id/tvWindValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="14 km/h"
+            tools:text="14 km/h"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -93,14 +95,15 @@
             android:layout_width="22dp"
             android:layout_height="22dp"
             android:src="@drawable/sunny_24dp_1f1f1f_fill0_wght400_grad0_opsz24"
-            app:tint="@color/white" />
+            android:importantForAccessibility="no"
+            android:tint="@color/white" />
 
         <TextView
             android:id="@+id/tvUvValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="4"
+            tools:text="4"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold" />

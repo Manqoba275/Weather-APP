@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:gravity="center_vertical"
     android:paddingVertical="12dp">
 
-    <TextView
-        android:id="@+id/tvDayLabel"
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Monday"
-        android:textColor="@color/white"
-        android:textSize="14sp" />
+        android:orientation="vertical">
+        <TextView android:id="@+id/tvDayLabel" android:layout_width="match_parent" android:layout_height="wrap_content"
+            tools:text="Monday 1 Oct" android:textColor="@color/white" android:textSize="14sp" />
+        <TextView android:id="@+id/tvDayRain" android:layout_width="match_parent" android:layout_height="wrap_content"
+            tools:text="Rain 30%" android:layout_marginTop="4dp" android:textColor="@color/white_70" android:textSize="12sp" />
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/ivDay"
@@ -22,13 +24,14 @@
         android:layout_height="24dp"
         android:layout_marginEnd="12dp"
         android:src="@drawable/cloud_24dp_1f1f1f_fill0_wght400_grad0_opsz24"
-        app:tint="@color/white_70" />
+        tools:contentDescription="Cloudy"
+        android:tint="@color/white_70" />
 
     <TextView
         android:id="@+id/tvDayLow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="14°"
+        tools:text="14°C"
         android:textColor="@color/white_50"
         android:textSize="14sp" />
 
@@ -44,11 +47,9 @@
         android:id="@+id/tvDayHigh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="24°"
+        tools:text="24°C"
         android:textColor="@color/white"
         android:textSize="14sp"
         android:textStyle="bold" />
 
-    <TextView android:id="@+id/tvDayRain" android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:layout_marginStart="12dp" android:textColor="@color/white_70" android:textSize="12sp" />
 </LinearLayout>
