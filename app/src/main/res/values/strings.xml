@@ -1,12 +1,26 @@
 <resources>
-    <string name="app_name">WeatherUI</string>
+    <string name="app_name">Weather</string>
+    <string name="tagline">Your forecast, wherever you go.</string>
+    <string name="search_hint">Search a city</string>
+    <string name="search">Search</string>
+    <string name="refresh">Refresh</string>
+    <string name="switch_fahrenheit">Switch to °F</string>
+    <string name="switch_celsius">Switch to °C</string>
+    <string name="loading">Loading…</string>
+    <string name="updated_at">Updated %1$s · %2$s</string>
+    <string name="cached_at">Saved forecast · fetched %1$s · %2$s · may be outdated</string>
+    <string name="forecast_time">Conditions for %1$s (location time)</string>
+    <string name="feels_like">Feels like %1$s</string>
+    <string name="rain_chance">Rain %1$s</string>
+    <string name="temperature_separator">/</string>
+    <string name="attribution">Weather: Open-Meteo · Locations: GeoNames ↗</string>
     <string name="location_placeholder">Johannesburg, ZA</string>
     <string name="temp_placeholder">22°</string>
     <string name="condition_placeholder">Partly Cloudy</string>
     <string name="feels_like_placeholder">Feels like 24°</string>
     <string name="humidity_label">Humidity</string>
     <string name="wind_label">Wind</string>
-    <string name="uv_label">UV Index</string>
-    <string name="hourly_forecast_title">Hourly Forecast</string>
+    <string name="uv_label">Today’s max UV</string>
+    <string name="hourly_forecast_title">Next 24 Hours</string>
     <string name="daily_forecast_title">7-Day Forecast</string>
 </resources>

@@ -1,87 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg_sky_gradient"
-    android:fillViewport="true"
-    xmlns:tools="http://schemas.android.com/tools">
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingHorizontal="20dp"
-        android:paddingTop="32dp"
-        android:paddingBottom="24dp">
-        <!-- ===== Location Header ===== -->
-        <TextView
-            android:id="@+id/tvLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/location_placeholder"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif-medium" />
-        <!-- ===== Current Weather Card ===== -->
-        <include
-            android:id="@+id/currentWeatherSection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            layout="@layout/section_current_weather" />
-
-    <!-- ===== Details Row ===== -->
-    <include
-        layout="@layout/section_weather_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp" />
-
-        <!-- ===== Hourly Forecast ===== -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="@string/hourly_forecast_title"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvHourly"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:clipToPadding="false"
-            android:orientation="horizontal"
-            android:paddingEnd="8dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_hourly_forecast"
-            tools:orientation="horizontal" />
-        <!-- ===== Daily Forecast ===== -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="@string/daily_forecast_title"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvDaily"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:nestedScrollingEnabled="false"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_daily_forecast" />
-
-
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/bg_sky_gradient" android:fillViewport="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="20dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/app_name" android:textSize="28sp" android:textStyle="bold"
+            android:textColor="@color/white" android:accessibilityHeading="true" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/tagline" android:textColor="@color/white_70" android:layout_marginBottom="16dp" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical">
+            <EditText android:id="@+id/etCity" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content" android:minHeight="48dp" android:hint="@string/search_hint"
+                android:inputType="textCapWords" android:imeOptions="actionSearch" android:maxLines="1"
+                android:maxLength="100" android:textColor="@color/white" android:textColorHint="@color/white_70"
+                android:backgroundTint="@color/white_70" android:autofillHints="addressLocality" />
+            <Button android:id="@+id/btnSearch" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/search" android:textAllCaps="false" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <Button android:id="@+id/btnRefresh" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content" android:text="@string/refresh" android:textAllCaps="false" />
+            <Button android:id="@+id/btnUnits" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content" android:text="@string/switch_fahrenheit" android:textAllCaps="false" />
+        </LinearLayout>
+        <ProgressBar android:id="@+id/progress" style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent" android:layout_height="4dp" android:indeterminate="true" android:visibility="gone" />
+        <TextView android:id="@+id/tvStatus" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:paddingVertical="12dp" android:textColor="@color/white" android:accessibilityLiveRegion="polite" android:visibility="gone" />
+        <LinearLayout android:id="@+id/cityResults" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
+        <LinearLayout android:id="@+id/forecastContent" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:visibility="gone">
+            <TextView android:id="@+id/tvLocation" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" android:textColor="@color/white" android:textSize="21sp" android:textStyle="bold" android:accessibilityHeading="true" />
+            <TextView android:id="@+id/tvUpdated" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="6dp" android:textColor="@color/white_70" android:textSize="12sp" />
+            <include android:id="@+id/currentWeatherSection" layout="@layout/section_current_weather"
+                android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" />
+            <TextView android:id="@+id/tvForecastTime" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:textColor="@color/white_70" android:textSize="12sp" />
+            <include android:id="@+id/weatherDetails" layout="@layout/section_weather_details"
+                android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp"
+                android:text="@string/hourly_forecast_title" android:textColor="@color/white" android:textSize="18sp"
+                android:textStyle="bold" android:accessibilityHeading="true" />
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvHourly" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="12dp" android:clipToPadding="false" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp"
+                android:text="@string/daily_forecast_title" android:textColor="@color/white" android:textSize="18sp"
+                android:textStyle="bold" android:accessibilityHeading="true" />
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvDaily" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="12dp" android:nestedScrollingEnabled="false" />
+        </LinearLayout>
+        <TextView android:id="@+id/tvAttribution" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:minHeight="48dp" android:gravity="center" android:layout_marginTop="16dp"
+            android:text="@string/attribution" android:textColor="@color/white" android:clickable="true" android:focusable="true"
+            android:background="?android:attr/selectableItemBackground" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
